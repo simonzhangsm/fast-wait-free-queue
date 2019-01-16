@@ -3,24 +3,17 @@
 
 static void * bits_join(int hi, int lo)
 {
-  intptr_t int64 = hi;
-  int64 <<= 32;
-  int64  += lo;
-  return (void *) int64;
+  return (void *)(((intptr_t) hi) << 32) | ((intptr_t) lo);
 }
 
 static int bits_lo(void * ptr)
 {
-  intptr_t int64 = (intptr_t) ptr;
-  int64 &= 0x00000000ffffffff;
-  return (int) int64;
+  return (int) ((intptr_t) ptr & 0x00000000ffffffff);
 }
 
 static int bits_hi(void * ptr)
 {
-  intptr_t int64 = (intptr_t) ptr;
-  int64 >>= 32;
-  return (int) int64;
+  return (int) ((intptr_t) ptr >> 32);
 }
 
 #endif /* end of include guard: BITS_H */

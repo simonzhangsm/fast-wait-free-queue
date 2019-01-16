@@ -59,7 +59,7 @@ inline int crq_is_closed(uint64_t t) {
 
 void queue_init(queue_t * q, int nprocs)
 {
-  RingQueue *rq = align_malloc(PAGE_SIZE, sizeof(RingQueue));
+  RingQueue *rq = aligned_alloc(PAGE_SIZE, sizeof(RingQueue));
   init_ring(rq);
 
   q->head = rq;
@@ -113,7 +113,7 @@ alloc:
       nrq = handle->next;
 
       if (nrq == NULL) {
-        nrq = align_malloc(PAGE_SIZE, sizeof(RingQueue));
+        nrq = aligned_alloc(PAGE_SIZE, sizeof(RingQueue));
         init_ring(nrq);
       }
 
