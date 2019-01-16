@@ -213,7 +213,7 @@ static uint64_t lcrq_get(queue_t * q, handle_t * handle) {
       // try to return empty
       next = rq->next;
       if (next == NULL)
-        return -1;  // EMPTY
+        return EMPTY;  // EMPTY
       if (tail_index(rq->tail) <= h + 1) {
         if (CAS(&q->head, &rq, next)) {
           hzdptr_retire(&handle->hzdptr, rq);
@@ -246,5 +246,5 @@ void queue_free(queue_t * q, handle_t * h){
     RingQueue *n = rq->next;
     free(rq);
     rq = n;
-  };
+  }
 }

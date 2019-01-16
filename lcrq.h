@@ -6,8 +6,6 @@
 #include "align.h"
 #include "hzdptr.h"
 
-#define EMPTY ((void *) -1)
-
 #ifndef LCRQ_RING_SIZE
 #define LCRQ_RING_SIZE (1ull << 12)
 #endif

@@ -4,8 +4,6 @@
 #ifdef CCQUEUE
 #include "ccsynch.h"
 
-#define EMPTY (void *) -1
-
 typedef struct _node_t {
   struct _node_t * next CACHE_ALIGNED;
   void * volatile data;

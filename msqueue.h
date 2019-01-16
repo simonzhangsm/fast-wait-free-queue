@@ -5,8 +5,6 @@
 #include "align.h"
 #include "hzdptr.h"
 
-#define EMPTY (void *) -1
-
 typedef struct _node_t {
   struct _node_t * volatile next DOUBLE_CACHE_ALIGNED;
   void * data DOUBLE_CACHE_ALIGNED;

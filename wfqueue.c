@@ -350,7 +350,7 @@ void *dequeue(queue_t *q, handle_t *th) {
 #endif
     }
 
-    if (v != EMPTY) {
+    if (v != NULL) {
         help_deq(q, th, th->Dh);
         th->Dh = th->Dh->next;
     }
@@ -364,7 +364,7 @@ void *dequeue(queue_t *q, handle_t *th) {
     }
 
 #ifdef RECORD
-    if (v == EMPTY) th->empty++;
+    if (v == NULL) th->empty++;
 #endif
     return v;
 }
